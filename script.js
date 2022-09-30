@@ -44,7 +44,7 @@ const showCharacters = (dataCharacters) => {
         targetContainer.appendChild(imgElement)
         targetContainer.appendChild(titleElement)
         titleElement.appendChild(titleName)
-        targetContainer.appendChild(imgElement)
+
     }) 
 }
 

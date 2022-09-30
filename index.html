@@ -9,15 +9,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <h1>Rick and Morty</h1>
-        <input type="search" name="search" placeholder="Type the character" id="inputSearch">
-        <button type="submit" id="btnSearch">Search Character</button>
+    <div class="headerContainer">
+        <h1 class="headerTitle">Rick and Morty</h1>
+        <div class="headerButtons">
+        <input type="search" name="search" placeholder="Type the character"id="inputSearch">
+        <button type="submit" id="btnSearch" class="btn btn-light">Search Character</button>
+        </div>
+    </div>
+
     </div>
     <br>
     <div>
-    <button id="previousPage">Page 1</button>
-    <button id="nextPage">Next Page</button>
+    <button id="previousPage" class="btn btn-light">Page 1</button>
+    <button id="nextPage" class="btn btn-light">Next Page</button>
     </div>
     <div id="charactersContainer"></div>
 
