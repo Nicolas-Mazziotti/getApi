@@ -38,3 +38,7 @@ body{
 .cardContainer h3 {
     color: white;
 }
+
+.hide{
+    display: none;
+}
