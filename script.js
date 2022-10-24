@@ -1,27 +1,29 @@
 
 const inputSearch = document.querySelector('#inputSearch')
 const tagName = document.getElementsByClassName('cardContainer')
-console.log(tagName)
+const btnNext = document.getElementById('nextPage')
 
 
 window.addEventListener('DOMContentLoaded', async() => {
-    console.log('Dom Loaded');
-    const arrCharacters = await getCharacters();
+    const arrCharacters = await getApi();
     showCharacters (arrCharacters);
-    getValues()
+    searchCharacter()
     
-
 })
 
 
+let pagination = 1;
+
 // Function to get rick and morty api
 
-const getCharacters = async () => {
-    const response = await fetch('https://rickandmortyapi.com/api/character')
+const getApi = async () => {
+    const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
     const data = await response.json()
     const dataArr = data.results
-     return dataArr
+     return dataArr   
  }
+
+ 
 
 //Function to show characters at dom
 //(characters) receive array line 99/100
@@ -44,34 +46,25 @@ const showCharacters = (characters) =>{
 
 // Function to search characters
 
-const getValues = () => {
-    let er = new RegExp(inputSearch.value, "i")
-    for (let i=0; i<tagName.length; i++) {
+const searchCharacter = () => {
+
+    let regex = new RegExp(inputSearch.value,'i')
+    for (let i=0; i < tagName.length; i++) {
         let valueTagName = (tagName[i])
-        if(er.test(valueTagName.innerText)){
+        if(regex.test(valueTagName.innerText)){
             valueTagName.classList.remove('hide')
         }else{
             valueTagName.classList.add('hide')
         }
     }
-    
-    
-    
-    
-    
-//     console.log(users)
-//    const searchCharacters = users.filter((user) => {
-//         let arrNames = user.name
-//         if(arrNames === inputSearch.value){
-//             showCharacters(searchCharacters)
-//         }        
-// })
 }
 
- inputSearch.addEventListener('keyup', getValues);
+ inputSearch.addEventListener('keyup', searchCharacter);
 
 
 
+
+ 
 
 
 
