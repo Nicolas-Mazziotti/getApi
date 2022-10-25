@@ -51,12 +51,12 @@ body{
 
 @media (max-width: 768px ){
     .cardContainer img {
-        width: 220px;
+        width: 250px;
     }
 }
 
 @media (max-width: 1024px ){
     .cardContainer img {
-        width: 250px;
+        width: 300px;
     }
 }
