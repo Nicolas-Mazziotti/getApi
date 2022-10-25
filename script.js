@@ -1,5 +1,7 @@
 
 const inputSearch = document.querySelector('#inputSearch')
+const charactersContainer = document.getElementById('charactersContainer')
+console.log(charactersContainer)
 const tagName = document.getElementsByClassName('cardContainer')
 const btnNext = document.getElementById('nextPage')
 
@@ -36,10 +38,14 @@ const showCharacters = (characters) =>{
         imgElement.classList.add('card-img-top')
         const titleElement = document.createElement('h3')
         const titleName = document.createTextNode(`${char.name}`)
+        const statusElement = document.createElement('h5')
+        const statusName = document.createTextNode(`${char.status}`)
         
         charactersContainer.appendChild(targetContainer)
         targetContainer.appendChild(imgElement)
         targetContainer.appendChild(titleElement)
+        targetContainer.appendChild(statusElement)
+        statusElement.append(statusName)
         titleElement.appendChild(titleName)
     })
 }
