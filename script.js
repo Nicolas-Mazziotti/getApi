@@ -7,28 +7,29 @@ const btnNext = document.getElementById('nextPage')
 
 
 window.addEventListener('DOMContentLoaded', async() => {
-    const arrCharacters = await getApi();
-    showCharacters (arrCharacters);
-    searchCharacter()
-    
+    await getApi();
+    searchCharacter()   
 })
 
 
-let pagination = 1;
+let pagination = 0;
 
 // Function to get rick and morty api
 
 const getApi = async () => {
+    pagination ++ ;
     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
-    const data = await response.json()
-    const dataArr = data.results
-     return dataArr   
+    const data = await response.json();
+    let dataArr = data.results;
+    console.log(dataArr);
+    showCharacters(dataArr);
+    console.log(response)
  }
 
  
 
 //Function to show characters at dom
-//(characters) receive array line 99/100
+//(characters) receive array line 27
 const showCharacters = (characters) =>{
     characters.map((char) => {
         const targetContainer = document.createElement('div')
@@ -48,6 +49,7 @@ const showCharacters = (characters) =>{
         statusElement.append(statusName)
         titleElement.appendChild(titleName)
     })
+
 }
 
 // Function to search characters
@@ -67,7 +69,24 @@ const searchCharacter = () => {
 
  inputSearch.addEventListener('keyup', searchCharacter);
 
+ 
+ btnNext.addEventListener('click',(e) => {
+    e.preventDefault();
+    console.log(e)
+    charactersContainer.innerHTML =+ ``; 
+    console.log(charactersContainer)
+    getApi()
+ });
 
+//  btnPrueba.addEventListener('click', async() => {
+//     pagination = 6 ;
+//     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
+//     console.log(response)
+//     const data = await response.json()
+//     const dataArr = data.results
+//     console.log(dataArr)
+//     showCharacters(dataArr)
+//  })
 
 
  
