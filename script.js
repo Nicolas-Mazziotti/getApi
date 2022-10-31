@@ -1,7 +1,6 @@
 
 const inputSearch = document.querySelector('#inputSearch')
 const charactersContainer = document.getElementById('charactersContainer')
-console.log(charactersContainer)
 const tagName = document.getElementsByClassName('cardContainer')
 const btnNext = document.getElementById('nextPage')
 
@@ -21,9 +20,7 @@ const getApi = async () => {
     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
     const data = await response.json();
     let dataArr = data.results;
-    console.log(dataArr);
     showCharacters(dataArr);
-    console.log(response)
  }
 
  
@@ -70,23 +67,14 @@ const searchCharacter = () => {
  inputSearch.addEventListener('keyup', searchCharacter);
 
  
+ // button next page
  btnNext.addEventListener('click',(e) => {
     e.preventDefault();
-    console.log(e)
-    charactersContainer.innerHTML =+ ``; 
-    console.log(charactersContainer)
+    charactersContainer.innerHTML = ``; 
     getApi()
  });
 
-//  btnPrueba.addEventListener('click', async() => {
-//     pagination = 6 ;
-//     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
-//     console.log(response)
-//     const data = await response.json()
-//     const dataArr = data.results
-//     console.log(dataArr)
-//     showCharacters(dataArr)
-//  })
+
 
 
  
