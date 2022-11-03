@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: #1b1b1b;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -30,24 +30,34 @@ body{
     align-items: center;
     text-align: center;
     margin: 3rem;
+    background-color: #4e4e4e;
+    border-radius: 20px;
 }
 
 .cardContainer h3 {
     margin-top: 1rem;
+    color: white;
 }
 
 .cardContainer img {
     border-radius: 200px;
     width: 300px;
+    padding: 1rem;
 }
 
-.cardContainer h3 {
-    color: white;
+.cardContainer img:hover {
+    opacity: 0.5;
+}
+
+.cardContainer h5 {
+    color: #F6EC3B;
+    opacity: 0.7;
 }
 
 .hide{
     display: none;
 }
+
 
 @media (max-width: 768px ){
     .cardContainer img {

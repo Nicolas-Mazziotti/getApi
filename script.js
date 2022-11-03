@@ -1,26 +1,28 @@
 
-const inputSearch = document.querySelector('#inputSearch')
-const charactersContainer = document.getElementById('charactersContainer')
-const tagName = document.getElementsByClassName('cardContainer')
-const btnNext = document.getElementById('nextPage')
+const inputSearch = document.querySelector('#inputSearch');
+const charactersContainer = document.getElementById('charactersContainer');
+const tagName = document.getElementsByClassName('cardContainer');
+const btnPageOne = document.getElementById('pageOne');
+const btnNext = document.getElementById('nextPage');
+const btnPrevious = document.getElementById('previousPage')
+const btnPrueba = document.getElementById('prueba');
 
 
 window.addEventListener('DOMContentLoaded', async() => {
     await getApi();
-    searchCharacter()   
+    searchCharacter() 
 })
 
 
-let pagination = 0;
-
+let pagination = 1;
 // Function to get rick and morty api
 
 const getApi = async () => {
-    pagination ++ ;
     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${pagination}`)
     const data = await response.json();
     let dataArr = data.results;
     showCharacters(dataArr);
+    
  }
 
  
@@ -69,10 +71,28 @@ const searchCharacter = () => {
  
  // button next page
  btnNext.addEventListener('click',(e) => {
+    btnPrevious.classList.remove('hide')
     e.preventDefault();
-    charactersContainer.innerHTML = ``; 
-    getApi()
+    charactersContainer.innerText = ``;
+    pagination ++;
+    getApi();
  });
+
+ // button previous page
+ btnPrevious.addEventListener('click',(e) => {
+    e.preventDefault();
+    charactersContainer.innerText = ``;
+        if (pagination == 0){     
+        pagination = 0
+        btnPrevious.classList.add('hide')
+        }else{
+        pagination --
+        }
+    getApi(pagination);
+ });
+
+
+
 
 
 
