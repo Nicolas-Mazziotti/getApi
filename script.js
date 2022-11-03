@@ -82,11 +82,9 @@ const searchCharacter = () => {
  btnPrevious.addEventListener('click',(e) => {
     e.preventDefault();
     charactersContainer.innerText = ``;
-        if (pagination == 0){     
-        pagination = 0
-        btnPrevious.classList.add('hide')
-        }else{
         pagination --
+        if (pagination == 1){     
+        btnPrevious.classList.add('hide')
         }
     getApi(pagination);
  });
