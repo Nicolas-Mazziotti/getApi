@@ -31,20 +31,23 @@ const getApi = async () => {
 //(characters) receive array line 27
 const showCharacters = (characters) =>{
     characters.map((char) => {
-        const targetContainer = document.createElement('div')
-        targetContainer.classList.add('cardContainer')
-        const imgElement = document.createElement('img')
-        imgElement.setAttribute('src', `${char.image}`)
-        imgElement.classList.add('card-img-top')
-        const titleElement = document.createElement('h3')
+        const targetContainer = document.createElement('div');
+        const contentContainer = document.createElement('div');
+        targetContainer.classList.add('cardContainer');
+        contentContainer.classList.add('contentContainer');
+        const imgElement = document.createElement('img');
+        imgElement.setAttribute('src', `${char.image}`);
+        imgElement.classList.add('card-img-top');
+        const titleElement = document.createElement('h3');
         const titleName = document.createTextNode(`${char.name}`)
         const statusElement = document.createElement('h5')
         const statusName = document.createTextNode(`${char.status}`)
         
         charactersContainer.appendChild(targetContainer)
-        targetContainer.appendChild(imgElement)
-        targetContainer.appendChild(titleElement)
-        targetContainer.appendChild(statusElement)
+        targetContainer.appendChild(contentContainer)
+        contentContainer.appendChild(imgElement)
+        contentContainer.appendChild(titleElement)
+        contentContainer.appendChild(statusElement)
         statusElement.append(statusName)
         titleElement.appendChild(titleName)
     })
