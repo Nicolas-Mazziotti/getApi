@@ -35,13 +35,14 @@ body{
 }
 
 .cardContainer h3 {
+    font-size: 25px;
     margin-top: 1rem;
-    color: white;
+    color: white;;
 }
 
 .cardContainer img {
     border-radius: 200px;
-    width: 300px;
+    width: 250px;
     padding: 1rem;
 }
 
@@ -54,19 +55,11 @@ body{
     opacity: 0.7;
 }
 
+
 .hide{
     display: none;
 }
 
 
-@media (max-width: 768px ){
-    .cardContainer img {
-        width: 250px;
-    }
-}
 
-@media (max-width: 1024px ){
-    .cardContainer img {
-        width: 300px;
-    }
-}
+
