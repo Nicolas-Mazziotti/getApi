@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nicolas-Mazziotti/getApi.git"
+    "url": "https://github.com/Nicolas-Mazziotti/getApi.git"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Nicolas-Mazziotti/getApi/issues"
   },
-  "homepage": "https://github.com/Nicolas-Mazziotti/getApi#readme",
+  "homepage": "https://nicolas-mazziotti.github.io/getApi/",
   "dependencies": {
     "bootstrap-icons": "^1.9.1"
   }
